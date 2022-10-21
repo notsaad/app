@@ -45,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
                 String user = username.getText().toString();
                 String pass = password.getText().toString();
 
+                String adminuser = "admin";
+                String adminpass = "pass";
+                Boolean insert = DB.insertData(adminuser,adminpass);
+
+
                 if(user.equals("") || pass.equals(""))
                     Toast.makeText(MainActivity.this, "Please enter all the fields",Toast.LENGTH_SHORT).show();
                 else{
