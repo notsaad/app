@@ -5,45 +5,37 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
-public class login extends AppCompatActivity {
-
-    private Button signOut;
+public class loginClient extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-    signOut=(Button)findViewById(R.id.signOut);
-    SharedPreferences.Editor editor = getSharedPreferences("name", MODE_PRIVATE).edit();
-    editor.putString("password", "");
-    editor.putString("email", "");
-    editor.putBoolean("isLoggedIn", false);
-    editor.apply();
+        Button signOut = (Button) findViewById(R.id.signOut);
+        SharedPreferences.Editor editor = getSharedPreferences("name", MODE_PRIVATE).edit();
+        editor.putString("password", "");
+        editor.putString("email", "");
+        editor.putBoolean("isLoggedIn", false);
+        editor.apply();
 
-    super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);
 
         SharedPreferences prefs = getSharedPreferences("name", MODE_PRIVATE);
         boolean isLoggedIn= prefs.getBoolean("isLoggedIn", false);
 
         if(isLoggedIn){
             startActivity(new Intent(getApplicationContext(),login.class));
-                    finish();
+            finish();
             return;
         }
         setContentView(R.layout.activity_login);
 
 
-    signOut.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
+        signOut.setOnClickListener(view -> {
 
-            Intent intent = new Intent(login.this, MainActivity.class);
+            Intent intent = new Intent(loginClient.this, MainActivity.class);
             startActivity(intent);
 
-        }
-
-
-});
-}}
+        });
+    }}

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="loginclient">You are logged in as a Client</string>
+    <string name="loginCook">You are logged in as a Cook</string>
+    <string name="loginadmin">You are logged in as an Admin</string>
+    <string name="signout">Sign Out</string>
 </resources>
