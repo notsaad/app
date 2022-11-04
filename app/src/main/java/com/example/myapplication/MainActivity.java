@@ -50,12 +50,22 @@ public class MainActivity extends AppCompatActivity {
                 Boolean insert = DB.insertData(adminuser,adminpass);
 
 
-                if(user.equals("") || pass.equals(""))
+                if(user.equals("") || pass.equals("")) //Empty fields
                     Toast.makeText(MainActivity.this, "Please enter all the fields",Toast.LENGTH_SHORT).show();
+
                 else{
                     Boolean checkuserpass = DB.checkusernamepassword(user,pass);
-                    if(checkuserpass==true){
-                        Toast.makeText(MainActivity.this,"Sign in successfull",Toast.LENGTH_SHORT).show();
+
+                    //Admin sign in
+                    if (DB.checkusernamepassword("admin","pass")){ //Send to complaint page
+                        Toast.makeText(MainActivity.this,"Admin sign in successful. To Complaints Page",Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this, ComplaintList.class);
+                        startActivity(intent);
+                    }
+
+                    //Regular sign in
+                    else if(checkuserpass==true){
+                        Toast.makeText(MainActivity.this,"Sign in successful",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(MainActivity.this, login.class);
                         startActivity(intent);
                     }
