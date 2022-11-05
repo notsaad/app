@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import java.util.Arrays;
+
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DBNAME = "Login.db";
@@ -37,6 +39,7 @@ public class DBHelper extends SQLiteOpenHelper {
         else
             return true;
     }
+
 
     public Boolean checkusername(String username){
         SQLiteDatabase MyDB = this.getWritableDatabase();
