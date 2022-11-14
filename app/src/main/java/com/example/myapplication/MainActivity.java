@@ -61,7 +61,12 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Please enter all the fields", Toast.LENGTH_SHORT).show();
                 else {
                     Boolean checkuserpass = DB.checkusernamepassword(user, pass);
-                    if (checkuserpass == true) {
+                    if (DB.checkusernamepassword("admin","pass")){ //Send to complaint page
+                        Toast.makeText(MainActivity.this,"Admin sign in successful. To Complaints Page",Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity.this, ComplaintList.class);
+                        startActivity(intent);
+                    }
+                    else if (checkuserpass == true) {
                         Toast.makeText(MainActivity.this, "Sign in successfull", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(MainActivity.this, login.class);
                         startActivity(intent);
